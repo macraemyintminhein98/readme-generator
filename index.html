@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        body { font-family: sans-serif; }
+        .container { max-width: 800px; margin: 2rem auto; padding: 1rem; }
+        form div { margin-bottom: 1rem; }
+        input, textarea { width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 0.25rem; }
+        button { padding: 0.75rem 1.5rem; background-color: #3B82F6; color: white; border-radius: 0.25rem; cursor: pointer; }
+        button:hover { background-color: #2563EB; }
+        #output { background-color: #f8f8f8; border: 1px dashed #ddd; padding: 1rem; min-height: 150px; white-space: pre-wrap; word-wrap: break-word; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-3xl font-bold mb-6 text-center">GitHub README Generator</h1>
+
+        <form id="readmeForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="projectName">Project Name</label>
+                <input type="text" id="projectName" placeholder="My Awesome Project" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Description</label>
+                <textarea id="description" rows="3" placeholder="A brief overview of your project..."></textarea>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="techStack">Tech Stack (comma-separated)</label>
+                <input type="text" id="techStack" placeholder="React, Node.js, MongoDB">
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="features">Features (one per line)</label>
+                <textarea id="features" rows="4" placeholder="- User authentication\n- Real-time data sync"></textarea>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="installation">Installation</label>
+                <textarea id="installation" rows="4" placeholder="bash\nnpm install\nnpm start\n"></textarea>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="usage">Usage</label>
+                <textarea id="usage" rows="4" placeholder="Explain how to use your project."></textarea>
+            </div>
+            <button type="submit" class="w-full">Generate README</button>
+        </form>
+
+        <div id="resultSection" class="hidden">
+            <h2 class="text-2xl font-bold mt-8 mb-4 text-center">Generated README.md</h2>
+            <pre id="output" class="rounded"></pre>
+            <button id="copyToClipboard" class="mt-4 w-full">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('readmeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const projectName = document.getElementById('projectName').value;
+            const description = document.getElementById('description').value;
+            const techStack = document.getElementById('techStack').value.split(',').map(s => s.trim()).filter(Boolean);
+            const features = document.getElementById('features').value.split('\n').map(s => s.trim()).filter(Boolean);
+            const installation = document.getElementById('installation').value;
+            const usage = document.getElementById('usage').value;
+
+            let readmeContent = `# ${projectName}\n\n`;
+            if (description) readmeContent += `${description}\n\n`;
+
+            if (techStack.length > 0) {
+                readmeContent += `## 🚀 Tech Stack\n\n`;
+                readmeContent += techStack.map(tech => `- ${tech}`).join('\n') + '\n\n';
+            }
+
+            if (features.length > 0) {
+                readmeContent += `## ✨ Features\n\n`;
+                readmeContent += features.map(feature => `- ${feature}`).join('\n') + '\n\n';
+            }
+
+            if (installation) {
+                readmeContent += `## 🛠️ Installation\n\n${installation}\n\n`;
+            }
+
+            if (usage) {
+                readmeContent += `## 📖 Usage\n\n${usage}\n\n`;
+            }
+
+            document.getElementById('output').textContent = readmeContent;
+            document.getElementById('resultSection').classList.remove('hidden');
+        });
+
+        document.getElementById('copyToClipboard').addEventListener('click', function() {
+            const outputText = document.getElementById('output').textContent;
+            navigator.clipboard.writeText(outputText).then(() => {
+                alert('README copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    </script>
+</body>
+</html>
