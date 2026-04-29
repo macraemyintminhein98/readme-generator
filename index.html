@@ -3,93 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APEX - README Generator</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>APEX README Generator</title>
+    <meta name="description" content="Generate professional GitHub READMEs effortlessly.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <style>
-        body { font-family: sans-serif; }
-        .container { max-width: 800px; }
-        textarea { min-height: 150px; }
+        body { display: flex; flex-direction: column; min-height: 100vh; overflow-y: scroll; scroll-behavior: smooth; }
+        main { flex: 1; padding: 2rem 0; max-width: 960px; margin: 0 auto; width: 100%; }
+        header, footer { padding: 1rem 0; text-align: center; }
+        .hero { text-align: center; padding: 4rem 0; background-color: var(--pico-background-color); border-bottom: 1px solid var(--pico-border-color); }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .feature-item { text-align: center; padding: 1rem; border: 1px solid var(--pico-border-color); border-radius: var(--pico-border-radius); }
+        .cta-button { display: inline-block; margin-top: 2rem; padding: 0.8rem 2rem; background-color: var(--pico-primary); color: var(--pico-primary-inverse); border-radius: var(--pico-border-radius); text-decoration: none; font-weight: bold; }
+        .cta-button:hover { opacity: 0.9; }
     </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center p-4">
-    <div class="container bg-white shadow-lg rounded-lg p-6 space-y-6">
-        <h1 class="text-3xl font-bold text-center text-gray-800">Generate Your README.md</h1>
-        <p class="text-center text-gray-600">Quickly create professional GitHub READMEs.</p>
+<body>
+    <header>
+        <nav class="container"><strong>APEX README Generator</strong></nav>
+    </header>
+    <main class="container">
+        <section class="hero">
+            <h1>Professional READMEs, Instantly.</h1>
+            <p class="lead">Craft engaging GitHub README.md files with ease. Stand out from the crowd.</p>
+            <a href="#buy" class="cta-button">Get Started Now ($9.99)</a>
+        </section>
 
-        <form id="readmeForm" class="space-y-4">
-            <div>
-                <label for="projectName" class="block text-sm font-medium text-gray-700">Project Name</label>
-                <input type="text" id="projectName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+        <section id="features" class="container">
+            <h2>Key Features</h2>
+            <div class="features">
+                <article class="feature-item">
+                    <h3>Quick & Easy Input</h3>
+                    <p>Intuitive form for all your project details: name, description, features, and more.</p>
+                </article>
+                <article class="feature-item">
+                    <h3>Templates & Styles</h3>
+                    <p>Choose from pre-designed templates or customize to match your project's brand.</p>
+                </article>
+                <article class="feature-item">
+                    <h3>Markdown Output</h3>
+                    <p>Generates clean, valid Markdown. Just copy and paste into your repo!</p>
+                </article>
+                <article class="feature-item">
+                    <h3>Developer Focused</h3>
+                    <p>Designed for open-source maintainers, students, and professional developers.</p>
+                </article>
             </div>
-            <div>
-                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                <textarea id="description" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></textarea>
-            </div>
-            <div>
-                <label for="features" class="block text-sm font-medium text-gray-700">Features (comma-separated)</label>
-                <input type="text" id="features" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-            </div>
-            <div>
-                <label for="installation" class="block text-sm font-medium text-gray-700">Installation</label>
-                <textarea id="installation" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" placeholder="e.g., `npm install`"></textarea>
-            </div>
-            <div>
-                <label for="usage" class="block text-sm font-medium text-gray-700">Usage</label>
-                <textarea id="usage" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" placeholder="e.g., `node index.js`"></textarea>
-            </div>
-            <div>
-                <label for="license" class="block text-sm font-medium text-gray-700">License</label>
-                <input type="text" id="license" value="MIT" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-            </div>
-            
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                Generate README
-            </button>
-        </form>
+        </section>
 
-        <div id="output" class="hidden mt-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-2">Your README.md</h2>
-            <textarea id="renderedReadme" class="block w-full border border-gray-300 rounded-md shadow-sm p-4 bg-gray-50 text-gray-800" readonly></textarea>
-            <button onclick="copyToClipboard()" class="mt-2 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Copy to Clipboard</button>
+        <section id="buy" class="container" style="text-align: center; margin-top: 4rem;">
+            <h2>Ready to Upgrade Your README?</h2>
+            <p>Get instant access to APEX README Generator for a one-time purchase.</p>
+            <a href="#" class="cta-button">Buy Now for $9.99</a>
+            <small style="display: block; margin-top: 1rem;">Secure payment via Stripe.</small>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 APEX. All rights reserved.</p>
         </div>
-    </div>
-
-    <script>
-        document.getElementById('readmeForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const projectName = document.getElementById('projectName').value || 'My Project';
-            const description = document.getElementById('description').value || 'A brief description of my awesome project.';
-            const features = document.getElementById('features').value.split(',').map(f => f.trim()).filter(Boolean);
-            const installation = document.getElementById('installation').value || 'bash\nnpm install\n';
-            const usage = document.getElementById('usage').value || 'bash\nnpm start\n';
-            const license = document.getElementById('license').value || 'MIT';
-
-            let readmeContent = `# ${projectName}\n\n`;
-            readmeContent += `${description}\n\n`;
-
-            if (features.length > 0) {
-                readmeContent += `## Features\n\n`;
-                features.forEach(feature => {
-                    readmeContent += `- ${feature}\n`;
-                });
-                readmeContent += `\n`;
-            }
-
-            readmeContent += `## Installation\n\n${installation}\n\n`;
-            readmeContent += `## Usage\n\n${usage}\n\n`;
-            readmeContent += `## License\n\nThis project is licensed under the ${license} License.\n`;
-
-            document.getElementById('renderedReadme').value = readmeContent;
-            document.getElementById('output').classList.remove('hidden');
-        });
-
-        function copyToClipboard() {
-            const textarea = document.getElementById('renderedReadme');
-            textarea.select();
-            document.execCommand('copy');
-            alert('README content copied to clipboard!');
-        }
-    </script>
+    </footer>
 </body>
 </html>
