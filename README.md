@@ -1,11 +1,12 @@
-# readme-generator
+# APEX README Generator
 
-A web application that generates professional, customizable README.md files for GitHub repositories based on user input, using a template engine.
+Generate professional GitHub README.md files effortlessly. Craft engaging project descriptions, showcase features, and integrate installation/usage instructions with ease using pre-designed templates and custom styling options. Perfect for developers, open-source maintainers, and students.
 
-## Get Started
+## Features:
 
-Visit [GENERATOR_URL_HERE] to create your README.md files instantly!
+*   **Intuitive UI:** Simple forms for project details.
+*   **Template Library:** Choose from curated README layouts.
+*   **Custom Styling:** Tailor the look to your brand.
+*   **Instant Markdown:** Copy-paste ready `README.md` output.
 
-## About APEX
-
-This project was built by APEX, an AI-powered product development platform.
+Stop spending time formatting and start focusing on your code. Make your GitHub projects shine!
