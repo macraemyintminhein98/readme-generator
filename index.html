@@ -3,64 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APEX README Generator</title>
-    <meta name="description" content="Generate professional GitHub READMEs effortlessly.">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>APEX - README Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        body { display: flex; flex-direction: column; min-height: 100vh; overflow-y: scroll; scroll-behavior: smooth; }
-        main { flex: 1; padding: 2rem 0; max-width: 960px; margin: 0 auto; width: 100%; }
-        header, footer { padding: 1rem 0; text-align: center; }
-        .hero { text-align: center; padding: 4rem 0; background-color: var(--pico-background-color); border-bottom: 1px solid var(--pico-border-color); }
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .feature-item { text-align: center; padding: 1rem; border: 1px solid var(--pico-border-color); border-radius: var(--pico-border-radius); }
-        .cta-button { display: inline-block; margin-top: 2rem; padding: 0.8rem 2rem; background-color: var(--pico-primary); color: var(--pico-primary-inverse); border-radius: var(--pico-border-radius); text-decoration: none; font-weight: bold; }
-        .cta-button:hover { opacity: 0.9; }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body>
-    <header>
-        <nav class="container"><strong>APEX README Generator</strong></nav>
-    </header>
-    <main class="container">
-        <section class="hero">
-            <h1>Professional READMEs, Instantly.</h1>
-            <p class="lead">Craft engaging GitHub README.md files with ease. Stand out from the crowd.</p>
-            <a href="#buy" class="cta-button">Get Started Now ($9.99)</a>
-        </section>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <h1 class="text-3xl font-bold mb-6 text-gray-800 text-center">README Generator</h1>
+        <p class="text-gray-600 mb-6 text-center">Craft professional GitHub READMEs in minutes.</p>
 
-        <section id="features" class="container">
-            <h2>Key Features</h2>
-            <div class="features">
-                <article class="feature-item">
-                    <h3>Quick & Easy Input</h3>
-                    <p>Intuitive form for all your project details: name, description, features, and more.</p>
-                </article>
-                <article class="feature-item">
-                    <h3>Templates & Styles</h3>
-                    <p>Choose from pre-designed templates or customize to match your project's brand.</p>
-                </article>
-                <article class="feature-item">
-                    <h3>Markdown Output</h3>
-                    <p>Generates clean, valid Markdown. Just copy and paste into your repo!</p>
-                </article>
-                <article class="feature-item">
-                    <h3>Developer Focused</h3>
-                    <p>Designed for open-source maintainers, students, and professional developers.</p>
-                </article>
-            </div>
-        </section>
-
-        <section id="buy" class="container" style="text-align: center; margin-top: 4rem;">
-            <h2>Ready to Upgrade Your README?</h2>
-            <p>Get instant access to APEX README Generator for a one-time purchase.</p>
-            <a href="#" class="cta-button">Buy Now for $9.99</a>
-            <small style="display: block; margin-top: 1rem;">Secure payment via Stripe.</small>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 APEX. All rights reserved.</p>
+        <div id="form-container">
+            <!-- Rendered by your JS framework (e.g., React/Next.js) -->
+            <p class="text-center text-gray-500">Loading application...</p>
+            <p class="text-center text-sm text-gray-400 mt-2">A rich form will appear here for inputs, generating your README.</p>
+            <p class="text-center text-sm text-gray-400 mt-2">Expect sections for Title, Description, Features, Installation, Usage, Contributing, License, and Badges.</p>
         </div>
-    </footer>
+
+        <div class="mt-8 text-center">
+            <p class="text-lg font-semibold text-gray-700">Price: $9.99 (one-time payment)</p>
+            <button id="checkout-button" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mt-4"
+            onclick="alert('This button would initiate a Stripe checkout for $9.99')">
+                Get Started Now
+            </button>
+        </div>
+
+        <p class="text-sm text-gray-500 mt-8 text-center">Built by APEX.</p>
+    </div>
 </body>
 </html>
